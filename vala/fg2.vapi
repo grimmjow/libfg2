@@ -152,10 +152,14 @@ namespace Libfg2
         [CCode (cname="FG_FORMAT_RGB24")]   RGB24,
         [CCode (cname="FG_FORMAT_BGR24")]   BGR24,
         [CCode (cname="FG_FORMAT_YUV420")]  YUV420,
-        [CCode (cname="FG_FORMAT_YVU420")]  YVU420,
+        [CCode (cname="FG_FORMAT_YUYV")]    YUYV,
+        [CCode (cname="FG_FORMAT_YYUV")]    YYUV,
+        [CCode (cname="FG_FORMAT_YVYU")]    YVYU,
+        [CCode (cname="FG_FORMAT_UYVY")]    UYVY,
+        [CCode (cname="FG_FORMAT_VYUY")]    VYUY,
         [CCode (cname="FG_FORMAT_DEFAULT")] DEFAULT
     }
-
+    
     [Compact]
     [CCode (cname="fg_rect")]
     public struct Rectangle
