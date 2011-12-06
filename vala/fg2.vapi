@@ -139,12 +139,14 @@ namespace Libfg2
         BACKGROUND_COLOR
     }
 
+    [CCode (cname="int")]
     public enum InputType
     {
         [CCode (cname="FG_INPUT_TYPE_TUNER")]   TUNER,
         [CCode (cname="FG_INPUT_TYPE_CAMERA")]  CAMERA
     }
 
+    [CCode (cname="int")]
     public enum Format
     {
         [CCode (cname="FG_FORMAT_RGB24")]   RGB24,
