@@ -68,6 +68,13 @@ void fg_frame_free(fg_frame *fr)
 
 //--------------------------------------------------------------------------
 
+void fg_frame_unref(fg_frame *fr)
+{
+    free(fr->data);
+}
+
+//--------------------------------------------------------------------------
+
 int fg_frame_copy(fg_frame *src, fg_frame *dst)
 {
     free(dst->data);
@@ -137,6 +144,27 @@ void fg_debug_frame(fg_frame *fr, FILE *fp)
 int fg_frame_get_size( fg_frame* fr )
 {
     return fr->length;
+}
+
+//--------------------------------------------------------------------------
+
+int fg_frame_get_height( fg_frame* fr )
+{
+    return fr->size.height;
+}
+
+//--------------------------------------------------------------------------
+
+int fg_frame_get_width( fg_frame* fr )
+{
+    return fr->size.width;
+}
+
+//--------------------------------------------------------------------------
+
+unsigned char *fg_frame_get_data( fg_frame* fr )
+{
+    return fr->data;
 }
 
 //--------------------------------------------------------------------------

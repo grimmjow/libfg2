@@ -475,6 +475,16 @@ int fg_get_format(fg_grabber *fg);
 
 //------------------------------------------------------------------------------
 ///
+///\brief   Free allocated memeory for griven fg
+///
+/// \param  fg      The frame grabber to set the capture size on.
+///
+/// \return none
+///
+void fg_unref(fg_grabber *fg);
+
+//------------------------------------------------------------------------------
+///
 ///\brief   Set the size of the video frames.
 ///
 /// This function sets the size of the video frames captured from the frame
