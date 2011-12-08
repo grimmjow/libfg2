@@ -323,11 +323,8 @@ fg_grabber *fg_open(const char *dev)
 
 // Free memory allocated in this function and return NULL
 error_exit:
-    free(fg->device);
-    free(fg->inputs);
-    free(fg->tuners);
-    free(fg->controls);
-    free(fg);
+
+    fg_unref(fg);
     return NULL;
 
 }
@@ -336,14 +333,7 @@ error_exit:
 
 void fg_close(fg_grabber *fg)
 {
-    if (v4l2_close(fg->fd) != 0)
-        fg_debug_error("fg_close(): warning: failed closing device file");
-    // Make sure we free all memory (backwards!)
-    free(fg->device);
-    free(fg->inputs);
-    free(fg->tuners);
-    free(fg->controls);
-    free(fg);
+    fg_unref(fg);
 }
 
 //--------------------------------------------------------------------------
@@ -902,6 +892,22 @@ int fg_set_whiteness( fg_grabber* fg, int wh )
     return 0;
 }
 */
+//--------------------------------------------------------------------------
+
+void fg_unref(fg_grabber *fg)
+{
+
+    // Make sure we free all memory (backwards!)
+    if (v4l2_close(fg->fd) != 0)
+        fg_debug_error("fg_close(): warning: failed closing device file");
+    free(fg->device);
+    free(fg->inputs);
+    free(fg->tuners);
+    free(fg->controls);
+    free(fg);
+
+}
+
 //--------------------------------------------------------------------------
 
 #define FROM_PC(n)      (n*100/65535)
