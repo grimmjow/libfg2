@@ -146,20 +146,62 @@ namespace Libfg2
         [CCode (cname="FG_INPUT_TYPE_CAMERA")]  CAMERA
     }
 
-    [CCode (cname="int")]
+    [CCode (cname="int", cprefix="FG_FORMAT_")]
     public enum Format
     {
-        [CCode (cname="FG_FORMAT_RGB24")]   RGB24,
-        [CCode (cname="FG_FORMAT_BGR24")]   BGR24,
-        [CCode (cname="FG_FORMAT_YUV420")]  YUV420,
-        [CCode (cname="FG_FORMAT_YUYV")]    YUYV,
-        [CCode (cname="FG_FORMAT_YYUV")]    YYUV,
-        [CCode (cname="FG_FORMAT_YVYU")]    YVYU,
-        [CCode (cname="FG_FORMAT_UYVY")]    UYVY,
-        [CCode (cname="FG_FORMAT_VYUY")]    VYUY,
-        [CCode (cname="FG_FORMAT_DEFAULT")] DEFAULT
+        RGB332,
+        RGB444,
+        RGB555,
+        RGB565,
+        RGB555X,
+        RGB565X,
+        BGR24,
+        RGB24,
+        BGR32,
+        RGB32,
+        GREY,
+        Y16,
+        PAL8,
+        YVU410,
+        YVU420,
+        YUYV,
+        UYVY,
+        YUV422P,
+        YUV411P,
+        Y41P,
+        YUV444,
+        YUV555,
+        YUV565,
+        YUV32,
+        NV12,
+        NV21,
+        YUV410,
+        YUV420,
+        YYUV,
+        HI240,
+        HM12,
+        SBGGR8,
+        SGBRG8,
+        SBGGR16,
+        MJPEG,
+        JPEG,
+        DV,
+        MPEG,
+        WNVA,
+        SN9C10X,
+        PWC1,
+        PWC2,
+        ET61X251,
+        SPCA501,
+        SPCA505,
+        SPCA508,
+        SPCA561,
+        PAC207,
+        PJPG,
+        YVYU,
+        DEFAULT
     }
-    
+
     [Compact]
     [CCode (cname="fg_rect")]
     public struct Rectangle
